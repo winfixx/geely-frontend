@@ -1,8 +1,7 @@
 <script setup lang="ts">
-import CarIcon from './icons/CarIcon.vue'
-import MarkLocationIcon from './icons/MarkLocationIcon.vue'
 import IconLinks from './list/IconLinks.vue'
 import MenuWrapper from './list/MenuWrapper.vue'
+import LogoHeader from './logo/LogoHeader.vue'
 </script>
 <script lang="ts"></script>
 
@@ -11,11 +10,7 @@ import MenuWrapper from './list/MenuWrapper.vue'
     <div class="header-main">
       <div class="header-left">
         <div class="button-mobile-menu"></div>
-        <img
-          class="logo"
-          src="@/assets/images/logo/main-geely.logo.png"
-          alt=""
-        />
+        <LogoHeader />
       </div>
 
       <div class="header-right">
@@ -48,15 +43,6 @@ import MenuWrapper from './list/MenuWrapper.vue'
     .header-left {
       display: flex;
       align-items: center;
-
-      .logo {
-        width: 250px;
-        height: 35px;
-      }
-    }
-
-    .header-right {
-      
     }
   }
 }

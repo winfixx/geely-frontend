@@ -3,6 +3,7 @@
   --short-height-header: 46px;
 
   --z-index-header: 10;
+  --z-index-button-carousel-navigation: 2;
 
   --color-text-icon-link-black: #000;
   --color-text-icon-link-blue: #002d96;
@@ -28,4 +29,9 @@ body {
 
 a {
   text-decoration: none;
+}
+
+button {
+  border: none;
+  background: none;
 }

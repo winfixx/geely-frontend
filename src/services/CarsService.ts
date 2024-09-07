@@ -3,11 +3,11 @@ import type { ICarsRepository } from '@/types/repositories/ICarsRepository'
 
 class CarsService {
   constructor(
-    private carsRepositories: ICarsRepository
-  ) {}
+    private readonly carsRepository: ICarsRepository
+  ) { }
 
-  public getCars() {
-    return this.carsRepositories.getCars()
+  public async getCars() {
+    return await this.carsRepository.getCars()
   }
 }
 

@@ -21,7 +21,7 @@ defineProps<{
   align-items: center;
   justify-content: center;
   padding: 16px 42px;
-  background-color: rgb(214, 214, 214);
+  background-color: rgb(236, 236, 236);
 }
 
 .blue {
@@ -30,5 +30,10 @@ defineProps<{
 
 .black {
   color: var(--color-text-icon-link-black);
+}
+@media (width <= 1366px) {
+  .icon-link.blue > .button-text {
+    display: none;
+  }
 }
 </style>
