@@ -1,98 +1,51 @@
 <script setup lang="ts">
-import CarsService from '@/services/CarsService'
-import type { Car } from '@/types/models/Car'
-import ArrowNextCarouselNav from './icons/ArrowNextCarouselNav.vue'
-import ArrowPrevCarouselNav from './icons/ArrowPrevCarouselNav.vue'
-import SwiperPagination from './swaper/swiper-pagination/SwiperPagination.vue'
-import SwiperWrapper from './swaper/swiper-wrapper/SwiperWrapper.vue'
+import AppLinedTitleH2 from '@/components/titles/h2/AppLinedTitleH2.vue'
+import FullImageCarousel from './full-image-carousel/FullImageCarousel.vue'
+import SwiperWrapper from '@/components/swaper/SwiperWrapper.vue'
+import ArrowPrev from '@/components/icons/ArrowPrev.vue'
+import ArrowNext from '@/components/icons/ArrowNext.vue'
+import { ref } from 'vue'
+
+const slideRef = ref()
 </script>
 <script lang="ts">
 export default {
   data(vm) {
     return {
-      listCars: [] as Car[],
-      myInnerWidth: window.innerWidth,
-      currentSlidePx: 0,
-      currentIndexSlide: 0,
-      intervalIdSwiper: -1,
-      intervalMsSwiper: 5000
+      currentSlidePx: 0
     }
   },
-  async mounted() {
-    this.listCars = await CarsService.getCars()
-
-    window.addEventListener('resize', this.onResize)
-
-    this.intervalIdSwiper = setInterval(
-      () => this.nextSlide(),
-      this.intervalMsSwiper
-    )
-  },
-  methods: {
-    onResize() {
-      this.myInnerWidth = window.innerWidth
-    },
-    nextSlide() {
-      if (this.currentIndexSlide === this.listCars.length - 1) {
-        this.currentIndexSlide = 0
-        this.currentSlidePx = 0
-      } else {
-        this.currentIndexSlide++
-        this.currentSlidePx -= this.myInnerWidth
-      }
-    },
-    prevSlide() {
-      if (this.currentIndexSlide === 0) {
-        const maxIndex = this.listCars.length - 1
-
-        this.currentIndexSlide = maxIndex
-        this.currentSlidePx = -maxIndex * this.myInnerWidth
-      } else {
-        this.currentIndexSlide--
-        this.currentSlidePx += this.myInnerWidth
-      }
-    },
-    goToSlide(indexSlide: number) {
-      this.currentIndexSlide = indexSlide
-      this.currentSlidePx = -indexSlide * this.myInnerWidth
-    },
-    onNextSlide() {
-      clearInterval(this.intervalIdSwiper)
-
-      this.nextSlide()
-    },
-    onPrevSlide() {
-      clearInterval(this.intervalIdSwiper)
-
-      this.prevSlide()
-    },
-    onGoToSlide(indexSlide: number) {
-      clearInterval(this.intervalIdSwiper)
-
-      this.goToSlide(indexSlide)
-    }
-  }
+  methods: {}
 }
 </script>
 
 <template>
   <div class="page-main">
-    <section class="full-image-carousel">
-      <SwiperWrapper
-        :current-slide-px="currentSlidePx"
-        :list-cars="listCars"
-        :my-inner-width="myInnerWidth"
-      />
+    <FullImageCarousel />
 
-      <div class="full-image-carousel__navigation">
-        <ArrowPrevCarouselNav @click="onPrevSlide()" />
-        <SwiperPagination
-          :list-cars="listCars"
-          :current-index-slide="currentIndexSlide"
-          :interval-ms-swiper="intervalMsSwiper"
-          @go-to-slide="onGoToSlide"
-        />
-        <ArrowNextCarouselNav @click="onNextSlide()" />
+    <section class="hero-product-carousel">
+      <AppLinedTitleH2 />
+
+      <div>
+        <SwiperWrapper :current-slide-px="currentSlidePx">
+          <template #swiper-slide>
+            <div
+              v-for="n in 10"
+              :key="n"
+              class="swipper-slide"
+              :ref="slideRef"
+            ></div>
+          </template>
+        </SwiperWrapper>
+      </div>
+
+      <div class="hero-product-carousel_nav-container">
+        <button class="hero-product-carousel_nav-button">
+          <ArrowPrev color="#fff" />
+        </button>
+        <button class="hero-product-carousel_nav-button">
+          <ArrowNext color="#fff" />
+        </button>
       </div>
     </section>
   </div>
@@ -102,19 +55,35 @@ export default {
 .page-main {
   padding-top: var(--base-height-header);
 
-  .full-image-carousel {
-    position: relative;
+  .hero-product-carousel {
+    padding: 10px 0 50px;
     overflow: hidden;
-    height: calc(100vh - var(--base-height-header));
 
-    .full-image-carousel__navigation {
+    .swipper-slide {
+      flex-shrink: 0;
+      height: 100px;
+      width: 340px;
+      background-color: black;
+      margin-left: 33px;
+      cursor: pointer;
+    }
+
+    .hero-product-carousel_nav-container {
       display: flex;
+      justify-content: center;
       align-items: center;
       gap: 10px;
-      position: absolute;
-      bottom: 52px;
-      left: 50%;
-      z-index: var(--z-index-button-carousel-navigation);
+      margin-top: 26px;
+
+      .hero-product-carousel_nav-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 15px;
+        background-color: var(--button-background-c);
+        width: 58px;
+        height: 58px;
+      }
     }
   }
 }

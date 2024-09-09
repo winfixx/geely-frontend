@@ -16,12 +16,12 @@ defineProps<{
   border: none;
   background: none;
   position: relative;
-  color: var(--color-text-menu-wrapper);
+  color: var(--button-menu-color);
   padding: 18px 47px;
   font-size: 18px;
 
   &:hover {
-    color: var(--color-text-menu-wrapper-hover);
+    color: var(--button-menu-hover-color);
   }
 
   &::after {
@@ -38,7 +38,7 @@ defineProps<{
 
   &:hover::after {
     width: 50px;
-    border-top-color: var(--color-text-menu-wrapper-hover);
+    border-top-color: var(--button-menu-hover-color);
   }
 }
 </style>

@@ -5,10 +5,19 @@
   --z-index-header: 10;
   --z-index-button-carousel-navigation: 2;
 
-  --color-text-icon-link-black: #000;
-  --color-text-icon-link-blue: #002d96;
-  --color-text-menu-wrapper: #666;
-  --color-text-menu-wrapper-hover: #002d96;
+
+  --gray-color: #666;
+  --blue-color: #002d96;
+  --gray-background-c: #e6e7e8;
+
+  --default-color: #000;
+  --link-color: var(--blue-color);
+  --button-menu-color: var(--gray-color);
+  --button-menu-hover-color:  var(--blue-color);
+
+  --default-background-c: #fff;
+  --content-info-background-c: var(--gray-background-c);
+  --button-background-c: var(--gray-background-c);
 }
 
 *,

@@ -21,15 +21,15 @@ defineProps<{
   align-items: center;
   justify-content: center;
   padding: 16px 42px;
-  background-color: rgb(236, 236, 236);
+  background-color: var(--button-background-c);
 }
 
 .blue {
-  color: var(--color-text-icon-link-blue);
+  color: var(--link-color);
 }
 
 .black {
-  color: var(--color-text-icon-link-black);
+  color: var(--default-color);
 }
 @media (width <= 1366px) {
   .icon-link.blue > .button-text {

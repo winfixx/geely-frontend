@@ -33,6 +33,7 @@ import LogoHeader from './logo/LogoHeader.vue'
   z-index: var(--z-index-header);
   height: var(--base-height-header);
   transition: all 0.5s ease-in-out;
+  background: var(--default-background-c);
 
   .header-main {
     display: flex;
