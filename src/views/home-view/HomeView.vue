@@ -1,21 +1,59 @@
 <script setup lang="ts">
-import AppLinedTitleH2 from '@/components/titles/h2/AppLinedTitleH2.vue'
-import FullImageCarousel from './full-image-carousel/FullImageCarousel.vue'
-import SwiperWrapper from '@/components/swaper/SwiperWrapper.vue'
-import ArrowPrev from '@/components/icons/ArrowPrev.vue'
 import ArrowNext from '@/components/icons/ArrowNext.vue'
-import { ref } from 'vue'
-
-const slideRef = ref()
+import ArrowPrev from '@/components/icons/ArrowPrev.vue'
+import SwiperWrapper from '@/components/swaper/SwiperWrapper.vue'
+import AppLinedTitleH2 from '@/components/titles/h2/AppLinedTitleH2.vue'
+import CarsService from '@/services/CarsService'
+import type { Car } from '@/types/models/Car'
+import FullImageCarousel from './full-image-carousel/FullImageCarousel.vue'
 </script>
 <script lang="ts">
+const swipperSlideRefName = 'swipperSlideRefName'
+
 export default {
   data(vm) {
     return {
-      currentSlidePx: 0
+      listCars: [] as Car[],
+      currentSlidePx: 0,
+      currentIndexSlide: 0,
+      widthSlide: 0
     }
   },
-  methods: {}
+  async beforeCreate() {
+    this.listCars = await CarsService.getCars()
+  },
+  mounted() {
+    const swiperSlideList = this.$refs[swipperSlideRefName] as HTMLDivElement[]
+
+    if (swiperSlideList && swiperSlideList.length) {
+      const firstSwiperSlide = swiperSlideList[0]
+
+      this.widthSlide =
+        firstSwiperSlide.clientWidth + +firstSwiperSlide.style.marginLeft
+    }
+  },
+  methods: {
+    nextSlide() {
+      if (this.currentIndexSlide === this.listCars.length - 1) {
+        this.currentIndexSlide = 0
+        this.currentSlidePx = 0
+      } else {
+        this.currentIndexSlide++
+        this.currentSlidePx -= this.widthSlide
+      }
+    },
+    prevSlide() {
+      if (this.currentIndexSlide === 0) {
+        const maxIndex = this.listCars.length - 1
+
+        this.currentIndexSlide = maxIndex
+        this.currentSlidePx = -maxIndex * this.widthSlide
+      } else {
+        this.currentIndexSlide--
+        this.currentSlidePx += this.widthSlide
+      }
+    }
+  }
 }
 </script>
 
@@ -30,20 +68,21 @@ export default {
         <SwiperWrapper :current-slide-px="currentSlidePx">
           <template #swiper-slide>
             <div
-              v-for="n in 10"
-              :key="n"
+              v-for="car in listCars"
+              :key="car.id"
               class="swipper-slide"
-              :ref="slideRef"
+              ref="swipperSlideRefName"
+              @click="console.log(widthSlide)"
             ></div>
           </template>
         </SwiperWrapper>
       </div>
 
       <div class="hero-product-carousel_nav-container">
-        <button class="hero-product-carousel_nav-button">
+        <button @click="prevSlide()" class="hero-product-carousel_nav-button">
           <ArrowPrev color="#fff" />
         </button>
-        <button class="hero-product-carousel_nav-button">
+        <button @click="nextSlide()" class="hero-product-carousel_nav-button">
           <ArrowNext color="#fff" />
         </button>
       </div>

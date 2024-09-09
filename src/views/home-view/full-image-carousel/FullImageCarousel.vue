@@ -18,9 +18,10 @@ export default {
       intervalMsSwiper: 5000
     }
   },
-  async mounted() {
+  async beforeCreate() {
     this.listCars = await CarsService.getCars()
-
+  },
+  async mounted() {
     window.addEventListener('resize', this.onResize)
 
     this.intervalIdSwiper = setInterval(
