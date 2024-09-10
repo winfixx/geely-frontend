@@ -25,5 +25,10 @@ export const dataCars: Car[] = [
     id:5,
     image: 'src/mock-data/images/car-5.png',
     model: 'Monjaro'
+  },
+  {
+    id:6,
+    image: 'src/mock-data/images/car-5.png',
+    model: 'Monjaro'
   }
 ]

@@ -2,9 +2,9 @@
 import SwiperPagination from '@/components/swaper/swiper-pagination/SwiperPagination.vue'
 import CarsService from '@/services/CarsService'
 import type { Car } from '@/types/models/Car'
-import ArrowNextCarouselNav from '../icons/ArrowNextCarouselNav.vue'
-import ArrowPrevCarouselNav from '../icons/ArrowPrevCarouselNav.vue'
 import SwiperFullImageCarousel from './swiper-full-image-carousel/SwiperFullImageCarousel.vue'
+import ArrowPrevCarouselNav from './buttons/ArrowPrevCarouselNav.vue';
+import ArrowNextCarouselNav from './buttons/ArrowNextCarouselNav.vue';
 </script>
 <script lang="ts">
 export default {
