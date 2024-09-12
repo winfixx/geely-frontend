@@ -3,8 +3,9 @@ import SwiperPagination from '@/components/swaper/swiper-pagination/SwiperPagina
 import CarsService from '@/services/CarsService'
 import type { Car } from '@/types/models/Car'
 import SwiperFullImageCarousel from './swiper-full-image-carousel/SwiperFullImageCarousel.vue'
-import ArrowPrevCarouselNav from './buttons/ArrowPrevCarouselNav.vue';
-import ArrowNextCarouselNav from './buttons/ArrowNextCarouselNav.vue';
+import ArrowPrevCarouselNav from './buttons/ArrowPrevCarouselNav.vue'
+import ArrowNextCarouselNav from './buttons/ArrowNextCarouselNav.vue'
+import { Swiper } from '@/assets/swiper/Swiper'
 </script>
 <script lang="ts">
 export default {
@@ -15,7 +16,8 @@ export default {
       widthSlide: window.innerWidth,
       currentIndexSlide: 0,
       intervalIdSwiper: -1,
-      intervalMsSwiper: 5000
+      intervalMsSwiper: 5000,
+      swiper: new Swiper()
     }
   },
   async beforeCreate() {
@@ -25,7 +27,7 @@ export default {
     window.addEventListener('resize', this.onResize)
 
     this.intervalIdSwiper = setInterval(
-      () => this.nextSlide(),
+      () => this.swiper.nextSlide(this.$data, this.listCars),
       this.intervalMsSwiper
     )
   },
@@ -33,44 +35,20 @@ export default {
     onResize() {
       this.widthSlide = window.innerWidth
     },
-    nextSlide() {
-      if (this.currentIndexSlide === this.listCars.length - 1) {
-        this.currentIndexSlide = 0
-        this.currentSlidePx = 0
-      } else {
-      }
-      this.currentIndexSlide++
-      this.currentSlidePx -= this.widthSlide
-    },
-    prevSlide() {
-      if (this.currentIndexSlide === 0) {
-        const maxIndex = this.listCars.length - 1
-
-        this.currentIndexSlide = maxIndex
-        this.currentSlidePx = -maxIndex * this.widthSlide
-      } else {
-        this.currentIndexSlide--
-        this.currentSlidePx += this.widthSlide
-      }
-    },
-    goToSlide(indexSlide: number) {
-      this.currentIndexSlide = indexSlide
-      this.currentSlidePx = -indexSlide * this.widthSlide
-    },
     onNextSlide() {
       clearInterval(this.intervalIdSwiper)
 
-      this.nextSlide()
+      this.swiper.nextSlide(this.$data, this.listCars)
     },
     onPrevSlide() {
       clearInterval(this.intervalIdSwiper)
 
-      this.prevSlide()
+      this.swiper.prevSlide(this.$data, this.listCars)
     },
     onGoToSlide(indexSlide: number) {
       clearInterval(this.intervalIdSwiper)
 
-      this.goToSlide(indexSlide)
+      this.swiper.goToSlide(this.$data, indexSlide)
     }
   }
 }

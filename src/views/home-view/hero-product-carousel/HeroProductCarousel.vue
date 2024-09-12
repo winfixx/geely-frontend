@@ -5,6 +5,8 @@ import SwiperHeroProductCarousel from './swiper-hero-product-carousel/SwiperHero
 import AppLinedTitleH2 from '@/components/titles/h2/AppLinedTitleH2.vue'
 import ArrowNextCarouselNav from './buttons/ArrowNextCarouselNav.vue'
 import ArrowPrevCarouselNav from './buttons/ArrowPrevCarouselNav.vue'
+import { Swiper } from '@/assets/swiper/Swiper'
+import { Slide } from '@/assets/swiper/Slide'
 </script>
 <script lang="ts">
 const swipperSlideRefName = 'swipperSlideRefName'
@@ -16,9 +18,7 @@ export default {
       currentSlidePx: 0,
       currentIndexSlide: 0,
       widthSlide: 0,
-      f: {
-        a: 1
-      }
+      swiper: new Swiper()
     }
   },
   async beforeCreate() {
@@ -38,24 +38,10 @@ export default {
   },
   methods: {
     nextSlide() {
-      if (this.currentIndexSlide === this.listCars.length - 1) {
-        this.currentIndexSlide = 0
-        this.currentSlidePx = 0
-      } else {
-        this.currentIndexSlide++
-        this.currentSlidePx -= this.widthSlide
-      }
+      this.swiper.nextSlide(this.$data, this.listCars)
     },
     prevSlide() {
-      if (this.currentIndexSlide === 0) {
-        const maxIndex = this.listCars.length - 1
-
-        this.currentIndexSlide = maxIndex
-        this.currentSlidePx = -maxIndex * this.widthSlide
-      } else {
-        this.currentIndexSlide--
-        this.currentSlidePx += this.widthSlide
-      }
+      this.swiper.prevSlide(this.$data, this.listCars)
     }
   }
 }
@@ -63,7 +49,6 @@ export default {
 
 <template>
   <section class="hero-product-carousel">
-    <button @click="listCars = []">sdfv</button>
     <AppLinedTitleH2 />
 
     <SwiperHeroProductCarousel

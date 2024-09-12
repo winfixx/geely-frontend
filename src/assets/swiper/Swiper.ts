@@ -10,6 +10,7 @@ export class Swiper<T extends T[]> {
       slide.currentSlidePx -= slide.widthSlide
     }
   }
+
   public prevSlide(slide: Slide, list: T) {
     if (slide.currentIndexSlide === 0) {
       const maxIndex = list.length - 1
@@ -20,5 +21,10 @@ export class Swiper<T extends T[]> {
       slide.currentIndexSlide--
       slide.currentSlidePx += slide.widthSlide
     }
+  }
+
+  public goToSlide(slide: Slide,indexSlide: number) {
+    slide.currentIndexSlide = indexSlide
+    slide.currentSlidePx = -indexSlide * slide.widthSlide
   }
 }
