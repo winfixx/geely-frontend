@@ -5,8 +5,8 @@ import SwiperHeroProductCarousel from './swiper-hero-product-carousel/SwiperHero
 import AppLinedTitleH2 from '@/components/titles/h2/AppLinedTitleH2.vue'
 import ArrowNextCarouselNav from './buttons/ArrowNextCarouselNav.vue'
 import ArrowPrevCarouselNav from './buttons/ArrowPrevCarouselNav.vue'
-import { Swiper } from '@/assets/swiper/Swiper'
-import { Slide } from '@/assets/swiper/Slide'
+import { Swiper } from '@/types/models/Swiper'
+import { Slide } from '@/types/models/Slide'
 </script>
 <script lang="ts">
 const swipperSlideRefName = 'swipperSlideRefName'

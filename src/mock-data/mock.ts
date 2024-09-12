@@ -3,32 +3,38 @@ import type { Car } from '@/types/models/Car'
 export const dataCars: Car[] = [
   {
     id: 1,
-    image: 'src/mock-data/images/car-1.png',
-    model: 'Emgrand'
+    mainImage: 'src/mock-data/images/car-1.png',
+    model: 'Emgrand',
+    description: ''
   },
   {
     id: 2,
-    image: 'src/mock-data/images/car-2.png',
-    model: 'Preface'
+    mainImage: 'src/mock-data/images/car-2.png',
+    model: 'Preface',
+    description: ''
   },
   {
     id: 3,
-    image: 'src/mock-data/images/car-3.png',
-    model: 'Atlas'
+    mainImage: 'src/mock-data/images/car-3.png',
+    model: 'Atlas',
+    description: ''
   },
   {
     id: 4,
-    image: 'src/mock-data/images/car-4.png',
-    model: 'Tugella'
+    mainImage: 'src/mock-data/images/car-4.png',
+    model: 'Tugella',
+    description: ''
   },
   {
     id:5,
-    image: 'src/mock-data/images/car-5.png',
-    model: 'Monjaro'
+    mainImage: 'src/mock-data/images/car-5.png',
+    model: 'Monjaro',
+    description: ''
   },
   {
     id:6,
-    image: 'src/mock-data/images/car-5.png',
-    model: 'Monjaro'
+    mainImage: 'src/mock-data/images/car-5.png',
+    model: 'Monjaro',
+    description: ''
   }
 ]

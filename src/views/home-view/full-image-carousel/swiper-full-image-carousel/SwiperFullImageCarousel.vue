@@ -21,7 +21,7 @@ defineProps<{
         :style="{ width: `${widthSlide}px` }"
       >
         <a
-          :style="{ backgroundImage: `url(${car.image})` }"
+          :style="{ backgroundImage: `url(${car.mainImage})` }"
           class="slide-content"
           href=""
         />

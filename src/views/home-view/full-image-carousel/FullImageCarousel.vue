@@ -5,7 +5,7 @@ import type { Car } from '@/types/models/Car'
 import SwiperFullImageCarousel from './swiper-full-image-carousel/SwiperFullImageCarousel.vue'
 import ArrowPrevCarouselNav from './buttons/ArrowPrevCarouselNav.vue'
 import ArrowNextCarouselNav from './buttons/ArrowNextCarouselNav.vue'
-import { Swiper } from '@/assets/swiper/Swiper'
+import { Swiper } from '@/types/models/Swiper'
 </script>
 <script lang="ts">
 export default {
