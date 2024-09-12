@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import SwiperPagination from '@/components/swaper/swiper-pagination/SwiperPagination.vue'
-import CarsService from '@/services/CarsService'
-import type { Car } from '@/types/models/Car'
+import CarsService from '@/core/services/CarsService'
+import type { Car } from '@/core/types/models/Car'
 import SwiperFullImageCarousel from './swiper-full-image-carousel/SwiperFullImageCarousel.vue'
 import ArrowPrevCarouselNav from './buttons/ArrowPrevCarouselNav.vue'
 import ArrowNextCarouselNav from './buttons/ArrowNextCarouselNav.vue'
-import { Swiper } from '@/types/models/Swiper'
+import { Swiper } from '@/core/types/models/Swiper'
 </script>
 <script lang="ts">
 export default {

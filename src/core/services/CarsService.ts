@@ -1,5 +1,5 @@
 import { CarsRepositoryMock } from '@/mock-data/repositories/CarsRepositoryMock'
-import type { ICarsRepository } from '@/types/repositories/ICarsRepository'
+import type { ICarsRepository } from '@/core/types/repositories/ICarsRepository'
 
 class CarsService {
   constructor(
@@ -8,6 +8,10 @@ class CarsService {
 
   public async getCars() {
     return await this.carsRepository.getCars()
+  }
+
+  public async getCarById(carId: number) {
+    return await this.carsRepository.getCarById(carId)
   }
 }
 

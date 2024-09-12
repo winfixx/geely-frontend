@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import CarsService from '@/services/CarsService'
-import type { Car } from '@/types/models/Car'
+import CarsService from '@/core/services/CarsService'
+import type { Car } from '@/core/types/models/Car'
 import SwiperHeroProductCarousel from './swiper-hero-product-carousel/SwiperHeroProductCarousel.vue'
 import AppLinedTitleH2 from '@/components/titles/h2/AppLinedTitleH2.vue'
 import ArrowNextCarouselNav from './buttons/ArrowNextCarouselNav.vue'
 import ArrowPrevCarouselNav from './buttons/ArrowPrevCarouselNav.vue'
-import { Swiper } from '@/types/models/Swiper'
-import { Slide } from '@/types/models/Slide'
+import { Swiper } from '@/core/types/models/Swiper'
+import { Slide } from '@/core/types/models/Slide'
 </script>
 <script lang="ts">
 const swipperSlideRefName = 'swipperSlideRefName'
@@ -58,20 +58,6 @@ export default {
       :width-slide="widthSlide"
     />
 
-    <!-- <div>
-      <SwiperWrapper :current-slide-px="currentSlidePx">
-        <template #swiper-slide>
-          <div
-            v-for="car in 11"
-            :key="car"
-            class="swipper-slide swiper-hero-product"
-            ref="swipperSlideRefName"
-            @click="console.log(widthSlide)"
-          ></div>
-        </template>
-      </SwiperWrapper>
-    </div> -->
-
     <div class="hero-product-carousel_nav-container">
       <ArrowPrevCarouselNav @click="prevSlide()" />
       <ArrowNextCarouselNav @click="nextSlide()" />
@@ -90,18 +76,6 @@ export default {
     align-items: center;
     gap: 10px;
     margin-top: 26px;
-  }
-
-  .swipper-slide {
-    flex-shrink: 0;
-    height: 100px;
-    width: 340px;
-    background-color: black;
-    cursor: pointer;
-
-    &.swiper-hero-product {
-      margin-left: 33px;
-    }
   }
 }
 </style>
