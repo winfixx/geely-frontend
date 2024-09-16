@@ -7,20 +7,24 @@ import LogoHeader from './logo/LogoHeader.vue'
 
 <template>
   <header class="header">
-    <div class="header-main">
-      <div class="header-left">
-        <div class="button-mobile-menu"></div>
-        <LogoHeader />
+    <div class="header-container wrapper">
+      <div class="header-main">
+        <div class="header-left">
+          <div class="button-mobile-menu"></div>
+          <LogoHeader />
+        </div>
+
+        <div class="header-midle">
+          <MenuWrapper />
+        </div>
+
+        <div class="header-right">
+          <IconLinks />
+        </div>
       </div>
 
-      <div class="header-right">
-        <IconLinks />
-
-        <MenuWrapper />
-      </div>
+      <div class="header-mobile"></div>
     </div>
-
-    <div class="header-mobile"></div>
   </header>
 </template>
 
@@ -31,19 +35,29 @@ import LogoHeader from './logo/LogoHeader.vue'
   left: 0;
   width: 100%;
   z-index: var(--z-index-header);
-  height: var(--base-height-header);
   transition: all 0.5s ease-in-out;
   background: var(--default-background-c);
 
-  .header-main {
-    display: flex;
-    justify-content: space-between;
-    height: 100%;
-    padding: 0 0 0 40px;
+  * {
+    font-size: 16px;
+  }
+  .header-container {
+    padding: 0 40px;
 
-    .header-left {
+    .header-main {
       display: flex;
-      align-items: center;
+      justify-content: space-between;
+      height: var(--base-height-header);
+
+      .header-left {
+        display: flex;
+        align-items: center;
+      }
+
+      .header-right {
+        display: flex;
+        align-items: center;
+      }
     }
   }
 }

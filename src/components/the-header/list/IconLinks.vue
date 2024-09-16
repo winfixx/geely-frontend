@@ -7,15 +7,11 @@ import CarIcon from '../icons/CarIcon.vue'
 
 <template>
   <div class="icon-links">
-    <IconLink text="Автомобили в наличии" color="black" />
-
-    <IconLink text="Помощь на дорогах" color="black" />
-
-    <IconLink text="Найти дилера" color="blue">
+    <IconLink text="Найти дилера" color="black">
       <template #icon><MarkLocationIcon /></template>
     </IconLink>
 
-    <IconLink text="Тест-драйв" color="blue">
+    <IconLink text="Тест-драйв" color="black">
       <template #icon><CarIcon /></template>
     </IconLink>
   </div>
@@ -25,7 +21,6 @@ import CarIcon from '../icons/CarIcon.vue'
 .icon-links {
   display: flex;
   justify-content: flex-end;
-  gap: 2px;
-  font-size: 18px;
+  gap: 24px;
 }
 </style>

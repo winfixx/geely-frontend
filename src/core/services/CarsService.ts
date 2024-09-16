@@ -13,6 +13,10 @@ class CarsService {
   public async getCarById(carId: number) {
     return await this.carsRepository.getCarById(carId)
   }
+
+  public async getNameCarsList(): Promise<string[]> {
+    return (await this.carsRepository.getCars()).map(car => car.model)
+  }
 }
 
 export default new CarsService(new CarsRepositoryMock())

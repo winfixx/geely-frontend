@@ -16,6 +16,5 @@ export default {}
 
 <style scoped lang="scss">
 .page-main {
-  padding-top: var(--base-height-header);
 }
 </style>

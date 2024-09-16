@@ -1,11 +1,6 @@
-<script setup lang="ts">
-import ArrowPrev from '@/components/icons/ArrowPrev.vue'
-</script>
-<script lang="ts"></script>
-
 <template>
   <button class="hero-product-carousel_nav-button">
-    <ArrowPrev color="#fff" />
+    <slot name="arrow"></slot>
   </button>
 </template>
 
@@ -15,8 +10,9 @@ import ArrowPrev from '@/components/icons/ArrowPrev.vue'
   justify-content: center;
   align-items: center;
   padding: 15px;
-  background-color: var(--button-background-c);
+  background-color: var(--button-slider-background-c);
   width: 58px;
   height: 58px;
+  cursor: pointer;
 }
 </style>

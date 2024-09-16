@@ -13,7 +13,10 @@ defineProps<{
 
 <template>
   <div>
-    <SwiperWrapper :current-slide-px="currentSlidePx">
+    <SwiperWrapper
+      :current-slide-px="currentSlidePx"
+      class="swiper-wrapper__modify"
+    >
       <template #swiper-slide>
         <div
           v-show="listCars && listCars.length"
@@ -21,7 +24,6 @@ defineProps<{
           :key="car.id"
           class="swipper-slide swiper-hero-product"
           ref="swipperSlideRefName"
-          @click="console.log(widthSlide)"
         >
           <a
             href=""
@@ -43,52 +45,56 @@ defineProps<{
 </template>
 
 <style lang="scss">
-.swipper-slide {
-  flex-shrink: 0;
-  cursor: pointer;
+.swiper-wrapper__modify {
+  justify-content: center;
+  
+  .swipper-slide {
+    flex-shrink: 0;
+    cursor: pointer;
 
-  &.swiper-hero-product {
-    width: 332px;
-    height: 630px;
-    margin-left: 33px;
+    &.swiper-hero-product {
+      width: 332px;
+      height: 630px;
+      margin-left: 33px;
 
-    .slide-content {
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-      height: 100%;
-      background-size: cover;
-      background-position: center;
-      padding-bottom: 30px;
-      color: var(--default-color);
+      .slide-content {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        padding-bottom: 30px;
+        color: var(--default-color);
 
-      .slide-content-info {
-        padding: 21px 32px;
-        background: var(--content-info-background-c);
+        .slide-content-info {
+          padding: 21px 32px;
+          background: var(--content-info-background-c);
 
-        .slide-title {
-          font-size: 38px;
-          text-transform: uppercase;
+          .slide-title {
+            font-size: 38px;
+            text-transform: uppercase;
+          }
+
+          hr {
+            margin: 10px 0;
+          }
+
+          .slide-desc {
+            line-height: 28px;
+            font-size: 18px;
+          }
         }
 
-        hr {
-          margin: 10px 0;
+        .gradient-button {
+          color: #fff;
+          margin-top: auto;
+          border: 1px solid currentColor;
+          height: 44px;
+          padding: 0 30px;
+          margin-right: 30px;
+          align-self: flex-end;
         }
-
-        .slide-desc {
-          line-height: 28px;
-          font-size: 18px;
-        }
-      }
-
-      .gradient-button {
-        color: #fff;
-        margin-top: auto;
-        border: 1px solid currentColor;
-        height: 44px;
-        padding: 0 30px;
-        margin-right: 30px;
-        align-self: flex-end;
       }
     }
   }

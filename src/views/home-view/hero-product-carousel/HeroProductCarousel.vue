@@ -3,10 +3,10 @@ import CarsService from '@/core/services/CarsService'
 import type { Car } from '@/core/types/models/Car'
 import SwiperHeroProductCarousel from './swiper-hero-product-carousel/SwiperHeroProductCarousel.vue'
 import AppLinedTitleH2 from '@/components/titles/h2/AppLinedTitleH2.vue'
-import ArrowNextCarouselNav from './buttons/ArrowNextCarouselNav.vue'
-import ArrowPrevCarouselNav from './buttons/ArrowPrevCarouselNav.vue'
 import { Swiper } from '@/core/types/models/Swiper'
-import { Slide } from '@/core/types/models/Slide'
+import ArrowCarouselNav from './buttons/ArrowCarouselNav.vue'
+import ArrowPrev from '@/components/icons/ArrowPrev.vue'
+import ArrowNext from '@/components/icons/ArrowNext.vue'
 </script>
 <script lang="ts">
 const swipperSlideRefName = 'swipperSlideRefName'
@@ -59,8 +59,16 @@ export default {
     />
 
     <div class="hero-product-carousel_nav-container">
-      <ArrowPrevCarouselNav @click="prevSlide()" />
-      <ArrowNextCarouselNav @click="nextSlide()" />
+      <ArrowCarouselNav @click="prevSlide()">
+        <template #arrow>
+          <ArrowPrev color="#fff" />
+        </template>
+      </ArrowCarouselNav>
+      <ArrowCarouselNav @click="nextSlide()">
+        <template #arrow>
+          <ArrowNext color="#fff" />
+        </template>
+      </ArrowCarouselNav>
     </div>
   </section>
 </template>
