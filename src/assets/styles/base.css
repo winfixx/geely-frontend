@@ -1,23 +1,29 @@
 :root {
-  --base-height-header: 118px;
+  --base-height-header: 78px;
   --short-height-header: 46px;
 
   --z-index-header: 10;
   --z-index-button-carousel-navigation: 2;
 
-
   --gray-color: #666;
   --blue-color: #002d96;
   --gray-background-c: #e6e7e8;
+  --black-color: #0b0d0c;
 
-  --default-color: #000;
+  --default-color: var(--black-color);
   --link-color: var(--blue-color);
   --button-menu-color: var(--gray-color);
-  --button-menu-hover-color:  var(--blue-color);
+  --button-menu-hover-color: var(--blue-color);
+  --text-footer-color: #fff;
 
   --default-background-c: #fff;
+  --footer-background-c: var(--black-color);
   --content-info-background-c: var(--gray-background-c);
-  --button-background-c: var(--gray-background-c);
+  --button-slider-background-c: var(--gray-background-c);
+  --button-header-background-c: var(--gray-background-c);
+  --button-primary-background-c: var(--black-color);
+
+  --base-button-border-radius: 2px;
 }
 
 *,
@@ -43,4 +49,9 @@ a {
 button {
   border: none;
   background: none;
+}
+
+.wrapper {
+  max-width: 1440px;
+  margin: 0 auto;
 }

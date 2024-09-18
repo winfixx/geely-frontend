@@ -10,8 +10,8 @@ defineProps<{
 
 <template>
   <a :class="['icon-link', color]" href="">
-    <span class="button-text">{{ text }}</span>
     <slot name="icon"></slot>
+    <span class="button-text">{{ text }}</span>
   </a>
 </template>
 
@@ -20,7 +20,7 @@ defineProps<{
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 16px 42px;
+  gap: 8px;
   background-color: var(--button-background-c);
 }
 
@@ -31,6 +31,7 @@ defineProps<{
 .black {
   color: var(--default-color);
 }
+
 @media (width <= 1366px) {
   .icon-link.blue > .button-text {
     display: none;

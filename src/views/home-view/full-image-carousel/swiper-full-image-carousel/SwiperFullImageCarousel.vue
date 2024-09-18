@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import SwiperWrapper from '@/components/swaper/SwiperWrapper.vue'
-import type { Car } from '@/types/models/Car'
+import type { Car } from '@/core/types/models/Car'
 import { defineProps } from 'vue'
 
 defineProps<{
@@ -21,7 +21,7 @@ defineProps<{
         :style="{ width: `${widthSlide}px` }"
       >
         <a
-          :style="{ backgroundImage: `url(${car.image})` }"
+          :style="{ backgroundImage: `url(${car.mainImage})` }"
           class="slide-content"
           href=""
         />

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Car } from '@/types/models/Car'
+import type { Car } from '@/core/types/models/Car'
 import { defineProps } from 'vue'
 import SwiperPaginationBullet from './SwiperPaginationBullet.vue'
 
