@@ -1,12 +1,11 @@
 <script setup lang="ts">
+import AppLinedTitleH2 from '@/components/titles/h2/AppLinedTitleH2.vue'
 import CarsService from '@/core/services/CarsService'
 import type { Car } from '@/core/types/models/Car'
-import SwiperHeroProductCarousel from './swiper-hero-product-carousel/SwiperHeroProductCarousel.vue'
-import AppLinedTitleH2 from '@/components/titles/h2/AppLinedTitleH2.vue'
 import { Swiper } from '@/core/types/models/Swiper'
-import ArrowCarouselNav from './buttons/ArrowCarouselNav.vue'
-import ArrowPrev from '@/components/icons/ArrowPrev.vue'
-import ArrowNext from '@/components/icons/ArrowNext.vue'
+import ArrowNextCarouselNav from './buttons/ArrowNextCarouselNav.vue'
+import ArrowPrevCarouselNav from './buttons/ArrowPrevCarouselNav.vue'
+import SwiperHeroProductCarousel from './swiper-hero-product-carousel/SwiperHeroProductCarousel.vue'
 </script>
 <script lang="ts">
 const swipperSlideRefName = 'swipperSlideRefName'
@@ -59,16 +58,8 @@ export default {
     />
 
     <div class="hero-product-carousel_nav-container">
-      <ArrowCarouselNav @click="prevSlide()">
-        <template #arrow>
-          <ArrowPrev color="#fff" />
-        </template>
-      </ArrowCarouselNav>
-      <ArrowCarouselNav @click="nextSlide()">
-        <template #arrow>
-          <ArrowNext color="#fff" />
-        </template>
-      </ArrowCarouselNav>
+      <ArrowPrevCarouselNav @click="prevSlide()" />
+      <ArrowNextCarouselNav @click="nextSlide()" />
     </div>
   </section>
 </template>

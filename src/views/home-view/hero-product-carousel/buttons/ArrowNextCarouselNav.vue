@@ -1,22 +1,15 @@
 <script setup lang="ts">
 import ArrowNext from '@/components/icons/ArrowNext.vue'
+import AppArrowCarouselNav from './AppArrowCarouselNav.vue'
 </script>
 <script lang="ts"></script>
 
 <template>
-  <button class="hero-product-carousel_nav-button">
-    <ArrowNext color="#fff" />
-  </button>
+  <AppArrowCarouselNav>
+    <template #arrow>
+      <ArrowNext color="#fff" />
+    </template>
+  </AppArrowCarouselNav>
 </template>
 
-<style scoped lang="scss">
-.hero-product-carousel_nav-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 15px;
-  background-color: var(--button-background-c);
-  width: 58px;
-  height: 58px;
-}
-</style>
+<style scoped lang="scss"></style>

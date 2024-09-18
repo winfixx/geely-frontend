@@ -14,7 +14,4 @@ export default {}
   </div>
 </template>
 
-<style scoped lang="scss">
-.page-main {
-}
-</style>
+<style scoped lang="scss"></style>

@@ -1,6 +1,6 @@
 <template>
   <button class="hero-product-carousel_nav-button">
-    <slot name="arrow"></slot>
+    <slot name="arrow" />
   </button>
 </template>
 

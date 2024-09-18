@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import SwiperWrapper from '@/components/swaper/SwiperWrapper.vue'
 import type { Car } from '@/core/types/models/Car'
-import { defineProps } from 'vue'
 
 defineProps<{
   currentSlidePx: number
