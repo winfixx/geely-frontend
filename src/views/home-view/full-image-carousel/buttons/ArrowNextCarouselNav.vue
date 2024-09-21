@@ -1,21 +1,13 @@
 <script setup lang="ts">
 import ArrowNext from '@/components/icons/ArrowNext.vue'
+import AppArrowCarouselNav from './AppArrowCarouselNav.vue'
 </script>
 <script lang="ts"></script>
 
 <template>
-  <button>
-    <ArrowNext color="#fff" />
-  </button>
+  <AppArrowCarouselNav>
+    <template #arrow>
+      <ArrowNext color="#fff" />
+    </template>
+  </AppArrowCarouselNav>
 </template>
-
-<style scoped lang="scss">
-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 25px;
-  height: 25px;
-  cursor: pointer;
-}
-</style>

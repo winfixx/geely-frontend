@@ -1,9 +1,9 @@
 import CarsService from '@/core/services/CarsService'
 import type { IFooterColumns } from './IFooterColumns'
-import { toCustomers } from './toCustomers'
-import { toOwners } from './toOwners'
-import { aboutGeely } from './aboutGeely'
-import { geelyInRussia } from './geelyInRussia'
+import { toCustomers } from './columns/toCustomers'
+import { toOwners } from './columns/toOwners'
+import { aboutGeely } from './columns/aboutGeely'
+import { geelyInRussia } from './columns/geelyInRussia'
 
 export const footerColumns: IFooterColumns[] = [
   { title: 'Модели', column: await CarsService.getNameCarsList() },

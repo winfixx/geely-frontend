@@ -1,12 +1,9 @@
 <script setup lang="ts">
-import CarsService from '@/core/services/CarsService'
-import type { Car } from '@/core/types/models/Car'
-import SwiperHeroProductCarousel from './swiper-hero-product-carousel/SwiperHeroProductCarousel.vue'
 import AppLinedTitleH2 from '@/components/titles/h2/AppLinedTitleH2.vue'
-import { Swiper } from '@/core/types/models/Swiper'
-import ArrowCarouselNav from './buttons/ArrowCarouselNav.vue'
-import ArrowPrev from '@/components/icons/ArrowPrev.vue'
-import ArrowNext from '@/components/icons/ArrowNext.vue'
+import ArrowNextCarouselNav from './buttons/ArrowNextCarouselNav.vue'
+import ArrowPrevCarouselNav from './buttons/ArrowPrevCarouselNav.vue'
+import { Swiper } from '@/types/models/Swiper'
+import { Slide } from '@/types/models/Slide'
 </script>
 <script lang="ts">
 const swipperSlideRefName = 'swipperSlideRefName'
